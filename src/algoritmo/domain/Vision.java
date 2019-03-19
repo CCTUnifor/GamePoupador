@@ -11,6 +11,7 @@ import java.util.List;
 public class Vision {
     private VisionEnum[] vision;
     private SmellEnum[] visionSmell;
+    private static int[][] mapDiscovered;
     private SensoresPoupador sensor;
     private static final int INDEX_TOP = 7;
     private static final int INDEX_BOTTOM = 16;
@@ -27,6 +28,10 @@ public class Vision {
         this.sensor = sensor;
         this.vision = new VisionEnum[(GlobalVariables.VISION_MATRIX_SIZE * GlobalVariables.VISION_MATRIX_SIZE) - 1];
         this.visionSmell = new SmellEnum[(GlobalVariables.SMELL_MATRIX_SIZE * GlobalVariables.SMELL_MATRIX_SIZE) - 1];
+        this.mapDiscovered = new int[GlobalVariables.MAP_WIDTH + 5][GlobalVariables.MAP_HEIGHT + 5];
+        for (int i = 0; i < mapDiscovered.length; i++)
+            for (int y = 0; y < mapDiscovered[i].length; y++)
+                mapDiscovered[i][y] = 0;
     }
 
     public VisionEnum[] getVision() {
@@ -37,10 +42,10 @@ public class Vision {
         return visionSmell;
     }
 
-    public VisionEnum getTop() { return vision[INDEX_TOP]; }
-    public VisionEnum getBottom() { return vision[INDEX_BOTTOM]; }
-    public VisionEnum getLeft() { return vision[INDEX_LEFT]; }
-    public VisionEnum getRight() { return vision[INDEX_RIGHT]; }
+    public VisionEnum getTop() { return vision[INDEX_TOP] == null ? VisionEnum.OUT_MAP : vision[INDEX_TOP]; }
+    public VisionEnum getBottom() { return vision[INDEX_BOTTOM] == null ? VisionEnum.OUT_MAP : vision[INDEX_BOTTOM]; }
+    public VisionEnum getLeft() { return vision[INDEX_LEFT] == null ? VisionEnum.OUT_MAP : vision[INDEX_LEFT]; }
+    public VisionEnum getRight() { return vision[INDEX_RIGHT] == null ? VisionEnum.OUT_MAP : vision[INDEX_RIGHT]; }
 
     public SmellEnum getTopSmell() { return visionSmell[INDEX_TOP_SMELL]; }
     public SmellEnum getBottomSmell() { return visionSmell[INDEX_BOTTOM_SMELL]; }
@@ -48,6 +53,10 @@ public class Vision {
     public SmellEnum getRightSmell() { return visionSmell[INDEX_RIGHT_SMELL]; }
 
     public void setSensor(SensoresPoupador sensor) { this.sensor = sensor; }
+    public void updateMapDiscovered() {
+        Point p = sensor.getPosicao();
+        mapDiscovered[p.x][p.y] += 1;
+    }
 
     public void update() {
         updateVision();
@@ -89,17 +98,19 @@ public class Vision {
         return posibleActions;
     }
 
-    public ActionEnum getQuadrante(Point p) {
+    public List<ActionEnum> getQuadrante(Point p) {
         Point saverPosition = sensor.getPosicao();
-        if (saverPosition.x - p.x < 0)
-            return ActionEnum.LEFT;
-        if (saverPosition.x - p.x > 0)
-            return ActionEnum.RIGHT;
-        if (saverPosition.y - p.y < 0)
-            return ActionEnum.DOWN;
-        if (saverPosition.y - p.y > 0)
-            return ActionEnum.UP;
-        return ActionEnum.STOP;
+        List<ActionEnum> actionsTo = new ArrayList<ActionEnum>();
+        if (saverPosition.x < p.x)
+            actionsTo.add(ActionEnum.RIGHT);
+        if (saverPosition.x > p.x)
+            actionsTo.add(ActionEnum.LEFT);
+        if (saverPosition.y < p.y)
+            actionsTo.add(ActionEnum.DOWN);
+        if (saverPosition.y > p.y)
+            actionsTo.add(ActionEnum.UP);
+
+        return actionsTo;
     }
 
     private List<Integer> getCoinsPosition() {
@@ -130,4 +141,13 @@ public class Vision {
         List<Integer> quadrante = Arrays.asList( 3, 4, 8, 9, 13, 14, 18, 19, 23, 24 );
         return quadrante.contains(position);
     }
+
+    public int positionUsedTimes(Point statePosition) {
+        return mapDiscovered[statePosition.x][statePosition.y];
+    }
+
+    public Point getTopPosition() { return new Point(sensor.getPosicao().x, sensor.getPosicao().y - 1); }
+    public Point getBottomPosition() { return new Point(sensor.getPosicao().x, sensor.getPosicao().y + 1); }
+    public Point getLeftPosition() { return new Point(sensor.getPosicao().x - 1, sensor.getPosicao().y); }
+    public Point getRightPosition() { return new Point(sensor.getPosicao().x + 1, sensor.getPosicao().y); }
 }
