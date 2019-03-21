@@ -2,13 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4f20f52-6019-41a0-bfb1-76c7787b23ab" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Labirintos/Labirinto2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labirintos/Labirinto3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Labirintos/Labirinto.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Labirintos/Labirinto.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/ActionEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/Ladrao.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/Ladrao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/LadraoOriginal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/MeuPoupador$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/MeuPoupador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/Poupador$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/Poupador$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/algoritmo/Poupador.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/Poupador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/GlobalVariables.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/domain/GlobalVariables.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/Vision.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/domain/Vision.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/Cell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/GlobalVariables.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/SmellEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/StateToMove.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/Vision.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/VisionEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/State$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/State.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/SubMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/Util.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/enums/EAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/enums/EGameObjectWeight.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/enums/EMapCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/ActionEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/Ladrao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algoritmo/Ladrao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/LadraoOriginal.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algoritmo/Poupador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algoritmo/Poupador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/Vision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algoritmo/domain/Vision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/PoupadorDaniel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/Cell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/GlobalVariables.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/SmellEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/StateToMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/Vision.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/VisionEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/State.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/SubMatrix.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/Util.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/enums/EAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/enums/EGameObjectWeight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/enums/EMapCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplicacao/Executa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplicacao/Executa.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,105 +57,39 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/algoritmo/Poupador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="364">
+              <caret line="97" column="77" selection-start-line="97" selection-start-column="77" selection-end-line="97" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3935#3948#0" expanded="true" />
+                <element signature="e#4201#4202#0" expanded="true" />
+                <element signature="e#4051#4058#0" expanded="true" />
+                <element signature="e#8414#8415#0" expanded="true" />
+                <element signature="e#8458#8459#0" expanded="true" />
+                <element signature="e#10163#10164#0" expanded="true" />
+                <element signature="e#10207#10208#0" expanded="true" />
+                <element signature="e#11682#11683#0" expanded="true" />
+                <element signature="e#11707#11708#0" expanded="true" />
+                <element signature="e#11878#11879#0" expanded="true" />
+                <element signature="e#11897#11898#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/poupador.jar!/algoritmo/Ambiente.class">
+        <entry file="file://$PROJECT_DIR$/Labirintos/Labirinto3.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="84" selection-start-line="84" selection-end-line="84" />
+            <state relative-caret-position="357">
+              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/poupador.jar!/controle/ThreadSimulacao.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/GlobalVariables.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="42" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/algoritmo/PoupadorDaniel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="71" column="37" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/enums/EGameObjectWeight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/State.java">
+        <entry file="file://$PROJECT_DIR$/Labirintos/Labirinto.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="8" column="15" lean-forward="true" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/enums/EAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/Util.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="57" column="8" lean-forward="true" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
-              <folding>
-                <element signature="e#215#216#0" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-                <element signature="e#2410#2411#0" expanded="true" />
-                <element signature="e#2454#2455#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/Vision.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3680#3692#0" expanded="true" />
-                <element signature="e#5208#5209#0" expanded="true" />
-                <element signature="e#5278#5279#0" expanded="true" />
-              </folding>
+              <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -137,17 +106,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>E</find>
-      <find>EAction</find>
-      <find />
-      <find>firstIteration</find>
-      <find>getAvailableCell</find>
-      <find>mapDis</find>
-      <find>mapDiscovered</find>
-      <find>26,y=11</find>
-      <find>19,y=21</find>
-      <find>update</find>
-      <find>Banco</find>
       <find>availables afr</find>
       <find>26,y=5</find>
       <find>27,y=6</find>
@@ -160,6 +118,24 @@
       <find>haveToGoToTheBank</find>
       <find>MIN_COIN_TO_DEPOSIT</find>
       <find>Math</find>
+      <find>identifyWeightByCode</find>
+      <find>getDis</find>
+      <find>visionSmell</find>
+      <find>smell</find>
+      <find>cell</find>
+      <find>haveMoney</find>
+      <find>walkMemory</find>
+      <find>29,y=19</find>
+      <find>caculateWeight</find>
+      <find>posicaoBanco</find>
+      <find>bankPosition</find>
+      <find>3</find>
+      <find>banco</find>
+      <find>mapDiscovered</find>
+      <find>shouldIBuyThePowerUp</find>
+      <find>atte</find>
+      <find>5</find>
+      <find>iden</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -176,20 +152,26 @@
         <option value="$PROJECT_DIR$/src/algoritmo/MapCodeEnum.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/domain/MapCodeEnum.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/domain/VisionEnum.java" />
-        <option value="$PROJECT_DIR$/src/algoritmo/domain/SmellEnum.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/domain/Cell.java" />
-        <option value="$PROJECT_DIR$/src/algoritmo/domain/StateToMove.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/domain/GlobalVariables.java" />
-        <option value="$PROJECT_DIR$/Labirintos/Labirinto.txt" />
-        <option value="$PROJECT_DIR$/src/algoritmo/domain/Vision.java" />
-        <option value="$PROJECT_DIR$/src/algoritmo/Poupador.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/MeuPoupador.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/PoupadorDaniel.java" />
+        <option value="$PROJECT_DIR$/src/algoritmo/domain/StateToMove.java" />
+        <option value="$PROJECT_DIR$/src/algoritmo/domain/ArrayAsMatriz.java" />
+        <option value="$PROJECT_DIR$/src/algoritmo/domain/SmellEnum.java" />
+        <option value="$PROJECT_DIR$/src/algoritmo/domain/GoalEnum.java" />
+        <option value="$PROJECT_DIR$/src/algoritmo/PoupadorT.java" />
+        <option value="$PROJECT_DIR$/Labirintos/Labirinto.txt" />
+        <option value="$PROJECT_DIR$/src/algoritmo/poupador/enums/EGameObjectWeight.java" />
+        <option value="$PROJECT_DIR$/src/algoritmo/domain/Vision.java" />
+        <option value="$PROJECT_DIR$/Labirintos/Labirinto2.txt" />
+        <option value="$PROJECT_DIR$/Labirintos/Labirinto3.txt" />
+        <option value="$PROJECT_DIR$/src/algoritmo/Poupador.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="104" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
@@ -202,6 +184,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -229,12 +213,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553018184184" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553140771482" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -242,6 +224,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Workspace\Universidade\IA-Poupador\Labirintos" />
       <recent name="D:\Workspace\Universidade\IA-Poupador\src\algoritmo" />
     </key>
   </component>
@@ -327,7 +310,7 @@
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.15618336" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.15778251" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
@@ -338,7 +321,7 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3290461" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.3279743" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.2915327" />
+      <window_info active="true" anchor="bottom" id="Debug" order="7" visible="true" weight="0.3215434" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -356,79 +339,89 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/algoritmo/PoupadorDaniel.java</url>
-          <line>52</line>
+          <url>file://$PROJECT_DIR$/src/algoritmo/domain/Vision.java</url>
+          <line>154</line>
           <properties />
-          <option name="timeStamp" value="52" />
+          <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/algoritmo/PoupadorDaniel.java</url>
-          <line>60</line>
+          <url>file://$PROJECT_DIR$/src/algoritmo/domain/Vision.java</url>
+          <line>67</line>
           <properties />
-          <option name="timeStamp" value="55" />
+          <option name="timeStamp" value="110" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
+        <watch expression="vision.getRight()" language="JAVA" />
         <watch expression="sensor.getPosicao()" language="JAVA" />
-        <watch expression="vision.vision" language="JAVA" />
-        <watch expression="availableCells.contains(path.getAction())" language="JAVA" />
-        <watch expression="path.getAction()" language="JAVA" />
-        <watch expression="availableCells" language="JAVA" />
-        <watch expression="sensor.getNumeroDeMoedas()" language="JAVA" />
+        <watch expression="attemptsToPickUpPower" language="JAVA" />
+        <watch expression="haveMoney()" language="JAVA" />
+        <watch expression="Constantes.posicaoBanco" language="JAVA" />
+        <watch expression="Poupador.bankPosition.y" language="JAVA" />
+        <watch expression="Poupador.bankPosition.x" language="JAVA" />
+        <watch expression="map[Poupador.bankPosition.y][Poupador.bankPosition.x]" language="JAVA" />
+        <watch expression="Poupador.bankPosition" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>cell == null</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
     <expressions id="watch">
       <expression>
+        <expression-string>haveMoney()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>map[Poupador.bankPosition.y][Poupador.bankPosition.x]</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Poupador.bankPosition.y</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Poupador.bankPosition.x</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Poupador.bankPosition</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Constantes.posicaoBanco</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>attemptsToPickUpPower</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>sensor.getPosicao()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>vision.getRight()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>sensor.getNumeroDeMoedas()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>availableCells</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>path.getAction()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>availableCells.contains(path.getAction())</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>vision.positionUsedTimes(statePosition) &lt; vision.positionUsedTimes(bestPosition)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>vision.positionUsedTimes(bestPosition)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>availablesStates.contains(state.getVision())</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>vision.positionUsedTimes(statePosition)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>vision.positionUsedTimes(best.getPosition())</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>mapDiscovered[bestPosition.x][bestPosition.y]</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -483,25 +476,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/enums/EMapCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding>
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#509#510#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/PoupadorDomain.java" />
-    <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/SmellEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/Ladrao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -541,28 +516,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Labirintos/Labirinto.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/poupador.jar!/algoritmo/Arquitetura.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="115" selection-start-line="115" selection-end-line="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/VisionEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding>
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#610#611#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -583,16 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/StateToMove.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="34" column="49" lean-forward="true" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -606,45 +553,81 @@
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/poupador.jar!/algoritmo/SensoresPoupador.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="268">
+          <caret line="53" column="15" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
           <folding>
+            <element signature="e#1418#1419#0" expanded="true" />
+            <element signature="e#1460#1461#0" expanded="true" />
+            <element signature="e#1598#1599#0" expanded="true" />
             <element signature="e#1633#1634#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/SubMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/enums/EAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/SmellEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="e#491#492#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/ArrayAsMatriz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="29" column="81" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/GlobalVariables.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="42" />
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/poupador.jar!/controle/ThreadSimulacao.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="236">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/Vision.java">
+    <entry file="jar://$PROJECT_DIR$/lib/poupador.jar!/algoritmo/Ambiente.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3680#3692#0" expanded="true" />
-            <element signature="e#5208#5209#0" expanded="true" />
-            <element signature="e#5278#5279#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="196">
+          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="57" column="8" lean-forward="true" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
+        <state relative-caret-position="195">
+          <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
           <folding>
             <element signature="e#215#216#0" expanded="true" />
             <element signature="e#259#260#0" expanded="true" />
@@ -654,48 +637,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/poupador.jar!/algoritmo/Ambiente.class">
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/PoupadorDaniel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="279">
+          <caret line="195" column="20" selection-start-line="195" selection-start-column="20" selection-end-line="195" selection-end-column="20" />
+          <folding>
+            <element signature="e#4255#4256#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/enums/EGameObjectWeight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        <state relative-caret-position="136">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/enums/EAction.java">
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/GoalEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding>
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/enums/EMapCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding>
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/VisionEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding>
+            <element signature="e#582#583#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/State.java">
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/StateToMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/Vision.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="33" column="71" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8690#8691#0" expanded="true" />
+            <element signature="e#8714#8715#0" expanded="true" />
+            <element signature="e#9446#9447#0" expanded="true" />
+            <element signature="e#9499#9500#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Labirintos/Labirinto2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Labirintos/Labirinto3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Labirintos/Labirinto.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="8" column="15" lean-forward="true" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/algoritmo/PoupadorDaniel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="71" column="37" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/Poupador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="364">
+          <caret line="97" column="77" selection-start-line="97" selection-start-column="77" selection-end-line="97" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3935#3948#0" expanded="true" />
+            <element signature="e#4201#4202#0" expanded="true" />
+            <element signature="e#4051#4058#0" expanded="true" />
+            <element signature="e#8414#8415#0" expanded="true" />
+            <element signature="e#8458#8459#0" expanded="true" />
+            <element signature="e#10163#10164#0" expanded="true" />
+            <element signature="e#10207#10208#0" expanded="true" />
+            <element signature="e#11682#11683#0" expanded="true" />
+            <element signature="e#11707#11708#0" expanded="true" />
+            <element signature="e#11878#11879#0" expanded="true" />
+            <element signature="e#11897#11898#0" expanded="true" />
           </folding>
         </state>
       </provider>
