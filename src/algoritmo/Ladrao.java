@@ -1,356 +1,256 @@
 package algoritmo;
 
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
-import controle.Constantes;
+import java.awt.*;
+import java.util.LinkedList;
+import java.util.Random;
 
 public class Ladrao extends ProgramaLadrao {
-	private short[][] mapa = new short[30][30];
-	private List<int[][]> caminhos = new ArrayList<int[][]>();
 
-	private int nMoedasAnt =0;
-	private Point posAnterior = new Point();
-    private int contContrario = 0;
+    private LinkedList<Posicao> historicoDePosicaos = new LinkedList<>();
+    private Point posicaoAtual;
+    private int maiorPeso;
+    private int direcao;
+    private Posicao posicao;
 
-	Ladrao() {
-		criaCaminhos();
-	}
 
-	private final int CIMA = 1;
-    private final int BAIXO = 2;
-    private final int DIREITA = 3;
-    private final int ESQUERDA = 4;
+    public int acao() {
+        int direcaoVisaoLadrao = procurarPoupadorNaVisao();
+        int direcaoOlfatoLadrao = procurarPoupadorNoOlfato();
 
-	class Destino {
-		Destino(int direcao, int peso) {
-			this.direcao = direcao;
-			this.peso = peso;
-		}
+        posicaoAtual = sensor.getPosicao();
 
-		int direcao;
-		int peso;
-	}
+        adicionarPontoVisitado(posicaoAtual);
 
-	public int acao() {
-		int[][] matriz = matrizComTodosPesos();
-
-		List<Destino> destinos = new ArrayList<Destino>();
-
-		// Direita
-		destinos.add(new Destino(DIREITA, menorPesoDireita(matriz)));
-
-		// Cima
-		rotacionaMatriz(matriz);
-		int pesoAux = menorPesoDireita(matriz);
-		int menorPeso = destinos.get(0).peso;
-		if (pesoAux <= menorPeso) {
-			if (pesoAux < menorPeso) {
-				destinos.clear();
-			}
-			destinos.add(new Destino(CIMA, pesoAux));
-		}
-
-		// Esquerda
-		rotacionaMatriz(matriz);
-		pesoAux = menorPesoDireita(matriz);
-		menorPeso = destinos.get(0).peso;
-		if (pesoAux <= menorPeso) {
-			if (pesoAux < menorPeso) {
-				destinos.clear();
-			}
-			destinos.add(new Destino(ESQUERDA, pesoAux));
-		}
-
-		// Baixo
-		rotacionaMatriz(matriz);
-		pesoAux = menorPesoDireita(matriz);
-		menorPeso = destinos.get(0).peso;
-		if (pesoAux <= menorPeso) {
-			if (pesoAux < menorPeso) {
-				destinos.clear();
-			}
-			destinos.add(new Destino(BAIXO, pesoAux));
-		}
-
-		// Define a direção
-		int destinoPos = (destinos.size() == 1) ? 0 : random(destinos.size() - 1);
-		int direcao = destinos.get(destinoPos).direcao;
-
-		// Marca no mapa a posição atual
-		Point pos = sensor.getPosicao();
-		mapa[pos.y][pos.x]++;
-
-		if(isPrendendoPoupador(direcao)){
-			contContrario += 5;
-		}
-
-		if (contContrario > 0) {
-			direcao = inverterDirecao(direcao);
-            contContrario--;
-		}
-
-        nMoedasAnt = sensor.getNumeroDeMoedas();
-		posAnterior = pos;
-		return direcao;
-	}
-
-	/**
-	* Define se está prendendo um poupador
-	 **/
-	private boolean isPrendendoPoupador(int direcao){
-	    if(nMoedasAnt < sensor.getNumeroDeMoedas()){
-	        return true;
+        if(direcaoVisaoLadrao != 0) {
+            System.out.println("Modo: Perseguição Sensor: Visão Direção: " + direcaoVisaoLadrao);
+            return direcaoVisaoLadrao;
+        } else if(direcaoOlfatoLadrao != 0) {
+            System.out.println("Modo: Perseguição Sensor: Olfato Direção: " + direcaoOlfatoLadrao);
+            return direcaoOlfatoLadrao;
+        } else {
+            direcao = explorar();
+            System.out.println("Modo: Exploração Direção: " + direcao);
+            return direcao;
         }
 
-        if(posAnterior.equals(sensor.getPosicao())){
-            int codProxDirecao = -1;
-            switch (direcao){
-                case DIREITA: codProxDirecao = 12; break;
+    }
 
-                case ESQUERDA: codProxDirecao = 11; break;
+    private int procurarPoupadorNaVisao() {
+        int[] visao = sensor.getVisaoIdentificacao();
+        int[] pesos = {0, 0, 0, 0, 0};
 
-                case CIMA: codProxDirecao = 7; break;
-
-                case BAIXO: codProxDirecao = 16; break;
-            }
-            if(codProxDirecao > -1) {
-                int[] visao = sensor.getVisaoIdentificacao();
-                return isPoupador(visao[codProxDirecao]);
+        for(int i = 0; i < visao.length; i++) {
+            if(i <= 9) {
+                pesos[1] = avaliaCodigoVisao(visao[i]);
+            } else if(i <= 11) {
+                pesos[4] = avaliaCodigoVisao(visao[i]);
+            } else if(i <= 13) {
+                pesos[3] = avaliaCodigoVisao(visao[i]);
+            } else if(i <= 23) {
+                pesos[2] = avaliaCodigoVisao(visao[i]);
             }
         }
 
-        return false;
+        maiorPeso = 0;
+        direcao = 0;
+
+        for(int i = 1; i < pesos.length; i++) {
+            if(pesos[i] > maiorPeso) {
+                maiorPeso = pesos[i];
+                direcao = i;
+            }
+        }
+
+
+        return direcao;
     }
 
-	/**
-	 * Acha o caminho com menor peso andando pela direita na matriz, e retorna o
-	 * seu peso. Para fazer o mesmo para outro lado, basta rotacionar a matriz
-	 * com rotacionaMatriz()
-	 **/
-	private int menorPesoDireita(int[][] matriz) {
-		int x = 2;
-		int y = 2;
-		int menor = Integer.MAX_VALUE;
-		for (int[][] caminho : caminhos) {
-			int pesoAtual = 0;
-			for (int[] passo : caminho) {
-				pesoAtual += matriz[x + passo[1]][y + passo[0]] + 1;
-			}
-			if (pesoAtual < menor) {
-				menor = pesoAtual;
-			}
-		}
-		return menor;
-	}
+    private int avaliaCodigoVisao(int visao) {
+        int peso = 0;
 
-	/**
-	 * Retorna a adição dos pesos do olfato e da parte visível do mapa aos
-	 * pesos da visão
-	 */
-	private int[][] matrizComTodosPesos() {
-		int[][] visao = pesarSensor(sensor.getVisaoIdentificacao(), 5, true);
-		int[][] olfato = pesarSensor(sensor.getAmbienteOlfatoPoupador(), 3, false);
+        if(visao == 100) {
+            peso += 1;
+        }
+        if(visao == 200) {
+            peso -= 2;
+        }
 
-		// Sobrepõe a matriz de olfato na matriz de visão, somando seus pesos
-		for (int i = 0; i < olfato.length; i++) {
-			for (int j = 0; j < olfato.length; j++) {
-				visao[i + 1][j + 1] += olfato[i][j];
-			}
-		}
-
-		// Sobrepõe o mapa na matriz de visão, somando os pesos
-		Point pos = sensor.getPosicao();
-		for (int i = 0; i < visao.length; i++) {
-			int x = pos.y + (i - 2);
-			for (int j = 0; j < visao.length; j++) {
-				int y = pos.x + (j - 2);
-				if ((x >= 0 && x < mapa.length) && (y >= 0 && y < mapa[0].length)) {
-					visao[i][j] += (int) mapa[x][y];
-				}
-			}
-		}
-
-		return visao;
-	}
-
-	/**
-	 * Recebe um vetor de um sensor e transforma ele numa matriz quadrada com o
-	 * tamanho passado. Os valores da matriz gerada são pesados com a função
-	 * getPeso().
-	 */
-	private int[][] pesarSensor(int[] vetor, int tamanhoMatriz, boolean visao) {
-		int[][] matrizComPeso = new int[tamanhoMatriz][tamanhoMatriz];
-
-		int x = 0;
-		int y = 0;
-
-		int centro = tamanhoMatriz / 2;
-		for (int i = 0; i < vetor.length; i++) {
-			if (y == centro && x == centro) {
-				// Vetor não vem com o valor do centro
-				matrizComPeso[centro][centro] = 0;
-				i--;
-			} else {
-				if (visao) {
-					matrizComPeso[x][y] = getPeso(vetor[i]);
-				} else {
-					matrizComPeso[x][y] = (vetor[i] == 0) ? 0 : (vetor[i] - 6) * 10;
-				}
-			}
-
-			if (y < tamanhoMatriz - 1) {
-				y++;
-			} else {
-				y = 0;
-				x++;
-			}
-		}
-
-		return matrizComPeso;
-	}
-
-	/**
-	 * Retorna o peso baseado num código. 0 significa espaço vazio, -100
-	 * significa um poupador, Qualquer outra coisa é considerado um obstáculo
-	 * e recebe um número bem alto.
-	 **/
-	private int getPeso(int cod) {
-		if (isVazio(cod)) {
-			return 0;
-		} else if (isPoupador(cod)) {
-			return -100;
-		} else {
-			return Integer.MAX_VALUE / 9;
-		}
-	}
-
-	private boolean isPoupador(int cod) {
-		return cod >= 100 && cod < 200;
-	}
-
-	private boolean isParede(int cod){
-	    return !isPoupador(cod) && !isVazio(cod);
+        return peso;
     }
 
-	private boolean isVazio(int cod) {
-		return cod == Constantes.posicaoLivre;
-	}
+    private int procurarPoupadorNoOlfato() {
+        int[] olfatoPoupador = sensor.getAmbienteOlfatoPoupador();
+        int[] pesos = new int[5];
 
-	private int random(int max) {
-		return ThreadLocalRandom.current().nextInt(0, max + 1);
-	}
-	
-	private int inverterDirecao(int direcao){
-		int novaDirecao = 0;
-		int[] visao = sensor.getVisaoIdentificacao();
-
-		switch (direcao){
-			case CIMA:
-			    if(!isParede(visao[16])) {
-                    novaDirecao = BAIXO;
+        for(int i = 0; i < olfatoPoupador.length; i++) {
+            if(olfatoPoupador[i] >= 1) {
+                if (i <= 2) {
+                    pesos[1] = compararPesoOlfato(pesos[1], olfatoPoupador[i]);
+                } else if (i <= 3) {
+                    pesos[4] = compararPesoOlfato(pesos[4], olfatoPoupador[i]);
+                } else if (i <= 4) {
+                    pesos[3] = compararPesoOlfato(pesos[3], olfatoPoupador[i]);
+                } else if (i <= 7) {
+                    pesos[2] = compararPesoOlfato(pesos[2], olfatoPoupador[i]);
                 }
-				break;
+            }
+        }
 
-			case BAIXO:
-                if(!isParede(visao[7])) {
-                    novaDirecao = CIMA;
-                }
-				break;
+        maiorPeso = 5;
+        direcao = 0;
 
-			case DIREITA:
-                if(!isParede(visao[11])) {
-                    novaDirecao = ESQUERDA;
-                }
-				break;
+        for(int i = 1; i < pesos.length; i++) {
+            if(pesos[i] <= maiorPeso && pesos[i] != 0) {
+                maiorPeso = pesos[i];
+                direcao = i;
+            }
+        }
 
-			case ESQUERDA:
-                if(!isParede(visao[12])) {
-                    novaDirecao = DIREITA;
-                }
-				break;
-		}
-		
-		return novaDirecao;
-		
-	}
 
-	/**
-	 * Gira a matriz 90 graus para a direita
-	 **/
-	
-	private void rotacionaMatriz(int[][] matriz) {
-		int temp;
+        return direcao;
+    }
 
-		// Transposta
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = i; j < matriz[0].length; j++) {
-				temp = matriz[j][i];
-				matriz[j][i] = matriz[i][j];
-				matriz[i][j] = temp;
-			}
-		}
+    private int compararPesoOlfato(int pesoAnterior, int novoPeso)	{
+        if(novoPeso < pesoAnterior && novoPeso != 0 || pesoAnterior == 0) {
+            return novoPeso;
+        }
 
-		// Inverte as colunas
-		for (int i = 0; i < matriz[0].length; i++) {
-			for (int j = 0, k = matriz[0].length - 1; j < k; j++, k--) {
-				temp = matriz[i][j];
-				matriz[i][j] = matriz[i][k];
-				matriz[i][k] = temp;
-			}
-		}
-	}
+        return pesoAnterior;
+    }
 
-	private void printMatriz(int[][] matriz) {
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz.length; j++) {
-				int c = matriz[j][i];
-				String s = (c > 100) ? "x" : Integer.toString(c);
-				System.out.print(s + "\t");
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
 
-	/**
-	 * Inicializa os caminhos que vão ser usados para checar no
-	 * menorPesoDireita(). Esses caminhos são caminhos para posiçòes que
-	 * seriam interessantes de chegar por um lado.
-	 **/
-	private void criaCaminhos() {
-		caminhos.add(new int[][] { { 1, 0 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, 1 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, -1 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, 1 }, { 1, 2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, -1 }, { 1, -2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, 1 }, { 1, 2 }, { 2, 2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, -1 }, { 1, -2 }, { 2, -2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, 1 }, { 1, 2 }, { 0, 2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, -1 }, { 1, -2 }, { 0, -2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, 1 }, { 2, 1 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, -1 }, { 2, -1 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, 1 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, -1 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, 1 }, { 2, 2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, -1 }, { 2, -2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, 1 }, { 2, 2 }, { 1, 2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, -1 }, { 2, -2 }, { 1, -2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, 1 }, { 2, 2 }, { 1, 2 }, { 0, 2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, -1 }, { 2, -2 }, { 1, -2 }, { 0, -2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, 1 }, { 2, 2 }, { 1, 2 }, { 0, 2 }, { -1, 2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, -1 }, { 2, -2 }, { 1, -2 }, { 0, -2 }, { -1, -2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, 1 }, { 2, 2 }, { 1, 2 }, { 0, 2 }, { -1, 2 }, { -2, 2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 2, 0 }, { 2, -1 }, { 2, -2 }, { 1, -2 }, { 0, -2 }, { -1, -2 }, { -2, -2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, 1 }, { 1, 2 }, { 0, 2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, -1 }, { 1, -2 }, { 0, -2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, 1 }, { 1, 2 }, { 0, 2 }, { -1, 2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, -1 }, { 1, -2 }, { 0, -2 }, { -1, -2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, 1 }, { 1, 2 }, { 0, 2 }, { -1, 2 }, { -2, 2 } });
-		caminhos.add(new int[][] { { 1, 0 }, { 1, -1 }, { 1, -2 }, { 0, -2 }, { -1, -2 }, { -2, -2 } });
-	}
+    private int explorar() {
+        int[] visao = sensor.getVisaoIdentificacao();
+        int[] direcoes = new int[5];
 
+        direcoes[1] = avaliarMovimento(visao, 1);
+        direcoes[2] = avaliarMovimento(visao, 2);
+        direcoes[3] = avaliarMovimento(visao, 3);
+        direcoes[4] = avaliarMovimento(visao, 4);
+
+        Random random = new Random();
+
+        maiorPeso = 0;
+        direcao = 1 + random.nextInt(4);
+
+
+        for(int i = 1; i < direcoes.length; i++) {
+            if(direcoes[i] >= maiorPeso) {
+                maiorPeso = direcoes[i];
+                direcao = i;
+            }
+        }
+
+        return direcao;
+    }
+
+    private int avaliarMovimento(int[] visao, int direcao) {
+        int codigoPonto = 10;
+        int peso = 0;
+        Point pontoMapa = new Point();
+
+        if(direcao == 1) {
+            codigoPonto = visao[7];
+            pontoMapa = new Point(posicaoAtual.x, posicaoAtual.y - 1);
+        } else if(direcao == 2) {
+            codigoPonto = visao[16];
+            pontoMapa = new Point(posicaoAtual.x, posicaoAtual.y + 1);
+        } else if(direcao == 3) {
+            codigoPonto = visao[12];
+            pontoMapa = new Point(posicaoAtual.x + 1, posicaoAtual.y);
+        } else if(direcao == 4) {
+            codigoPonto = visao[11];
+            pontoMapa = new Point(posicaoAtual.x - 1, posicaoAtual.y);
+        }
+
+        peso -= procurarPontoVisitado(pontoMapa);
+
+        if(codigoPonto == 1 || codigoPonto == 4 || codigoPonto == -2 || codigoPonto == -1 || codigoPonto == 3 || codigoPonto == 5) {
+            peso -= 1;
+        } else if(codigoPonto == 0) {
+            peso += 3;
+        }
+
+
+        return peso;
+
+    }
+
+
+    private void adicionarPontoVisitado(Point ponto) {
+        boolean encontrou = false;
+
+        for(int i = 0; i < historicoDePosicaos.size(); i++) {
+
+            posicao = historicoDePosicaos.get(i);
+
+            if(posicao.x == ponto.x && posicao.y == ponto.y) {
+                historicoDePosicaos.get(i).setPeso(posicao.getPeso() + 2);
+                encontrou = true;
+            }
+        }
+
+        if(!encontrou) {
+            historicoDePosicaos.add(new Posicao(ponto.x, ponto.y, 1));
+        }
+
+    }
+
+    private int procurarPontoVisitado(Point ponto) {
+        for(int i = 0; i < historicoDePosicaos.size(); i++) {
+
+            posicao = historicoDePosicaos.get(i);
+
+            if(posicao.x == ponto.x && posicao.y == ponto.y) {
+                return posicao.getPeso();
+            }
+        }
+
+        return 0;
+    }
+
+
+}
+
+class Posicao extends Point {
+    private int peso;
+
+    public Posicao(int x, int y, int peso) {
+        super(x, y);
+        this.peso = peso;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
+}
+
+class Movimento {
+    private int direcao;
+    private int peso;
+
+    public Movimento(int direcao, int peso) {
+        this.direcao = direcao;
+        this.peso = peso;
+    }
+
+    public int getDirecao() {
+        return direcao;
+    }
+
+    public void setDirecao(int direcao) {
+        this.direcao = direcao;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
 }

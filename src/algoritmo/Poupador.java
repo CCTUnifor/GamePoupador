@@ -42,14 +42,12 @@ public class Poupador extends ProgramaPoupador {
 	}
 
 	public int acao() {
-
 		updateMap();
 
 		List<State> newPossibleStates = getStateSuccessors(this.currentPosition);
 
-		for(State s : newPossibleStates) {
+		for(State s : newPossibleStates)
 			s.setWeight(getStateWeight(s));
-		}
 
 		Collections.shuffle(newPossibleStates);
 		Collections.sort(newPossibleStates, State.comparator());
@@ -306,7 +304,9 @@ public class Poupador extends ProgramaPoupador {
 			case SAVER:
 				return EGameObjectWeight.SAVER.getValue();
 			case THIEF:
-				return EGameObjectWeight.THIEF.getValue();
+				if (sensor.getNumeroJogadasImunes() == 0)
+					return EGameObjectWeight.THIEF.getValue();
+				return EGameObjectWeight.THIEF.getValue() / sensor.getNumeroJogadasImunes();
 			default:
 				return 0;
 		}

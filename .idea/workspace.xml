@@ -2,48 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4f20f52-6019-41a0-bfb1-76c7787b23ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Labirintos/Labirinto2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Labirintos/Labirinto3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/algoritmo/LadraoX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labirintos/Labirinto.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Labirintos/Labirinto.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/ActionEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/EAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/EAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/EGameObjectWeight.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/EGameObjectWeight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/EMapCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/EMapCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/Ladrao$Destino.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/algoritmo/Ladrao.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/Ladrao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/LadraoOriginal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/MeuPoupador$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/MeuPoupador.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/algoritmo/Poupador$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/Poupador$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/algoritmo/Poupador.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/Poupador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/Cell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/GlobalVariables.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/SmellEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/StateToMove.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/Vision.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/domain/VisionEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/State$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/State.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/SubMatrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/enums/EAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/enums/EGameObjectWeight.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/poupador/enums/EMapCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/ActionEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/State$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/State$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/SubMatrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/SubMatrix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/algoritmo/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/Util.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algoritmo/Ladrao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algoritmo/Ladrao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/LadraoOriginal.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algoritmo/Poupador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algoritmo/Poupador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/PoupadorDaniel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/Cell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/GlobalVariables.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/SmellEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/StateToMove.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/Vision.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/domain/VisionEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/State.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/SubMatrix.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/Util.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/enums/EAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/enums/EGameObjectWeight.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algoritmo/poupador/enums/EMapCode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aplicacao/Executa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplicacao/Executa.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,14 +27,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/algoritmo/Poupador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="97" column="77" selection-start-line="97" selection-start-column="77" selection-end-line="97" selection-end-column="77" />
+            <state relative-caret-position="130">
+              <caret line="291" column="22" lean-forward="true" selection-start-line="291" selection-start-column="22" selection-end-line="291" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4201#4202#0" expanded="true" />
+                <element signature="e#4182#4183#0" expanded="true" />
                 <element signature="e#4051#4058#0" expanded="true" />
                 <element signature="e#8414#8415#0" expanded="true" />
                 <element signature="e#8458#8459#0" expanded="true" />
@@ -71,6 +44,30 @@
                 <element signature="e#11707#11708#0" expanded="true" />
                 <element signature="e#11878#11879#0" expanded="true" />
                 <element signature="e#11897#11898#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/algoritmo/Ladrao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="235" column="38" lean-forward="true" selection-start-line="235" selection-start-column="38" selection-end-line="235" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#6077#6078#0" expanded="true" />
+                <element signature="e#6104#6105#0" expanded="true" />
+                <element signature="e#6141#6142#0" expanded="true" />
+                <element signature="e#6173#6174#0" expanded="true" />
+                <element signature="e#6383#6384#0" expanded="true" />
+                <element signature="e#6413#6414#0" expanded="true" />
+                <element signature="e#6456#6457#0" expanded="true" />
+                <element signature="e#6494#6495#0" expanded="true" />
+                <element signature="e#6522#6523#0" expanded="true" />
+                <element signature="e#6549#6550#0" expanded="true" />
+                <element signature="e#6586#6587#0" expanded="true" />
+                <element signature="e#6618#6619#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,7 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>availables afr</find>
       <find>26,y=5</find>
       <find>27,y=6</find>
       <find>25,y=6</find>
@@ -136,6 +132,7 @@
       <find>atte</find>
       <find>5</find>
       <find>iden</find>
+      <find>ident</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -166,6 +163,7 @@
         <option value="$PROJECT_DIR$/src/algoritmo/domain/Vision.java" />
         <option value="$PROJECT_DIR$/Labirintos/Labirinto2.txt" />
         <option value="$PROJECT_DIR$/Labirintos/Labirinto3.txt" />
+        <option value="$PROJECT_DIR$/src/algoritmo/Ladrao.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/Poupador.java" />
       </list>
     </option>
@@ -216,7 +214,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553140771482" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553141334972" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -352,19 +350,6 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="vision.getRight()" language="JAVA" />
-        <watch expression="sensor.getPosicao()" language="JAVA" />
-        <watch expression="attemptsToPickUpPower" language="JAVA" />
-        <watch expression="haveMoney()" language="JAVA" />
-        <watch expression="Constantes.posicaoBanco" language="JAVA" />
-        <watch expression="Poupador.bankPosition.y" language="JAVA" />
-        <watch expression="Poupador.bankPosition.x" language="JAVA" />
-        <watch expression="map[Poupador.bankPosition.y][Poupador.bankPosition.x]" language="JAVA" />
-        <watch expression="Poupador.bankPosition" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
@@ -477,7 +462,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/domain/PoupadorDomain.java" />
-    <entry file="file://$PROJECT_DIR$/src/algoritmo/Ladrao.java">
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/LadraoX.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
@@ -734,11 +719,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/Poupador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="97" column="77" selection-start-line="97" selection-start-column="77" selection-end-line="97" selection-end-column="77" />
+        <state relative-caret-position="130">
+          <caret line="291" column="22" lean-forward="true" selection-start-line="291" selection-start-column="22" selection-end-line="291" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4201#4202#0" expanded="true" />
+            <element signature="e#4182#4183#0" expanded="true" />
             <element signature="e#4051#4058#0" expanded="true" />
             <element signature="e#8414#8415#0" expanded="true" />
             <element signature="e#8458#8459#0" expanded="true" />
@@ -748,6 +733,28 @@
             <element signature="e#11707#11708#0" expanded="true" />
             <element signature="e#11878#11879#0" expanded="true" />
             <element signature="e#11897#11898#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algoritmo/Ladrao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="235" column="38" lean-forward="true" selection-start-line="235" selection-start-column="38" selection-end-line="235" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6077#6078#0" expanded="true" />
+            <element signature="e#6104#6105#0" expanded="true" />
+            <element signature="e#6141#6142#0" expanded="true" />
+            <element signature="e#6173#6174#0" expanded="true" />
+            <element signature="e#6383#6384#0" expanded="true" />
+            <element signature="e#6413#6414#0" expanded="true" />
+            <element signature="e#6456#6457#0" expanded="true" />
+            <element signature="e#6494#6495#0" expanded="true" />
+            <element signature="e#6522#6523#0" expanded="true" />
+            <element signature="e#6549#6550#0" expanded="true" />
+            <element signature="e#6586#6587#0" expanded="true" />
+            <element signature="e#6618#6619#0" expanded="true" />
           </folding>
         </state>
       </provider>
