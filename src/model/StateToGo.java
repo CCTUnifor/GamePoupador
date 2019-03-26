@@ -6,11 +6,18 @@ import java.util.Comparator;
 public class StateToGo {
     private ActionEnum action;
     private Point position;
+    private MapEnum mapEnum;
     private double weight = 0;
 
     public StateToGo(ActionEnum action, Point position) {
         this.action = action;
         this.position = position;
+    }
+
+    public StateToGo(ActionEnum action, Point position, MapEnum mapEnum) {
+        this.action = action;
+        this.position = position;
+        this.mapEnum = mapEnum;
     }
 
     public ActionEnum getAction() { return action; }
@@ -29,5 +36,10 @@ public class StateToGo {
                 return weight0 > weight1 ? 1 : weight0 < weight1 ? -1 : 0;
             }
         };
+    }
+
+    @Override
+    public String toString() {
+        return position.toString() + " - " + action.toString() + " - " + mapEnum + " - " + weight;
     }
 }

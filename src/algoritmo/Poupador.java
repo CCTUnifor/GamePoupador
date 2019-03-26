@@ -26,6 +26,8 @@ public class Poupador extends ProgramaPoupador {
         updateVariables();
 
         List<StateToGo> newPossibleStates = getStateSuccessors(this.currentPosition);
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println(currentPosition);
 
         for(StateToGo s : newPossibleStates)
             s.setWeight(getStateWeight(s));
@@ -40,6 +42,7 @@ public class Poupador extends ProgramaPoupador {
 
             return value.getAction().getValue();
         }
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
 
         return ActionEnum.STOP.getValue();
     }
@@ -69,7 +72,19 @@ public class Poupador extends ProgramaPoupador {
     }
 
     private void updateMap() {
-        int offset = GlobalVariables.VISION_MATRIX_SIZE/2;
+        for (int i = 0; i < GlobalVariables.VISION_MATRIX_SIZE; i++) {
+            for (int j = 0; j < GlobalVariables.VISION_MATRIX_SIZE; j++) {
+                MapEnum cellValue = vision[i][j];
+                int x = (i - 2) + currentPosition.x;
+                int y = (j-2) + currentPosition.y;
+
+                if (isInMap(new Point(x, y))){
+                    map[x][y] = cellValue;
+                }
+            }
+        }
+        printMatrix(map);
+        /*int offset = GlobalVariables.VISION_MATRIX_SIZE/2;
         int m, n = m = GlobalVariables.VISION_MATRIX_SIZE;
 
         for (int i = this.currentPosition.y - offset, count_i = 0; count_i < m; count_i++, i++) {
@@ -78,13 +93,13 @@ public class Poupador extends ProgramaPoupador {
 
                 if (isInMap(new Point(j, i)) && cellValue != MapEnum.NO_VISION) {
                     this.map[j][i] = cellValue;
-                    /*if (cellValue == MapEnum.BANK){
-                        PoupadorX.BANK_X = i;
-                        PoupadorX.BANK_Y = j;
-                    }*/
+                    //if (cellValue == MapEnum.BANK){
+                    //    PoupadorX.BANK_X = i;
+                    //    PoupadorX.BANK_Y = j;
+                    //}
                 }
             }
-        }
+        }*/
     }
 
     private static MapEnum[][] getVisionArrayAsMatrix(int[] array, int m, int centerValue) {
@@ -149,11 +164,16 @@ public class Poupador extends ProgramaPoupador {
     private List<StateToGo> getStateSuccessors(Point point) {
         List<StateToGo> validStates = new ArrayList<StateToGo>();
 
-        StateToGo[] nextStates = {
-                new StateToGo(ActionEnum.UP, new Point(point.x, point.y - 1)),
-                new StateToGo(ActionEnum.DOWN, new Point(point.x, point.y + 1)),
-                new StateToGo(ActionEnum.RIGHT, new Point(point.x + 1, point.y)),
-                new StateToGo(ActionEnum.LEFT, new Point(point.x - 1, point.y))
+        Point up = new Point(point.x - 1, point.y);
+        Point down = new Point(point.x + 1, point.y);
+        Point right = new Point(point.x, point.y + 1);
+        Point left = new Point(point.x, point.y - 1);
+
+        StateToGo[] nextStates = new StateToGo[]{
+                new StateToGo(ActionEnum.UP, up, getMapEnum(up)),
+                new StateToGo(ActionEnum.DOWN, down, getMapEnum(down)),
+                new StateToGo(ActionEnum.RIGHT, right, getMapEnum(right)),
+                new StateToGo(ActionEnum.LEFT, left, getMapEnum(left))
         };
 
         for(StateToGo s : nextStates) {
@@ -166,6 +186,12 @@ public class Poupador extends ProgramaPoupador {
         }
 
         return validStates;
+    }
+
+    private MapEnum getMapEnum(Point p) {
+        if (isInMap(p))
+            return map[p.x][p.y];
+        return null;
     }
 
     private boolean isInMap(Point current) {
@@ -188,9 +214,14 @@ public class Poupador extends ProgramaPoupador {
     private double getStateWeight(StateToGo s) {
         double weight = 0;
 
+        System.out.println(s);
+
         weight = calcVisionWeight(s);
         weight += calcSmellWeight(s);
         weight += calcExplorationWeight(s);
+
+        System.out.println();
+        System.out.println();
 
         return weight;
     }
@@ -238,6 +269,8 @@ public class Poupador extends ProgramaPoupador {
             }
         }
 
+        System.out.println("CalcVision: " + weight);
+
         return weight;
     }
 
@@ -256,8 +289,10 @@ public class Poupador extends ProgramaPoupador {
             default:
                 break;
         }
+        weight = weight*(-1);
+        System.out.println("CalcSmell: " + weight);
 
-        return weight*(-1);
+        return weight;
     }
 
 
@@ -266,7 +301,6 @@ public class Poupador extends ProgramaPoupador {
         double weight = 0;
 
         SubMatrix submatrix = cutMatrix(map, currentPosition, s.getAction());
-        printMatrix(map);
 
         for(int i = submatrix.i; i < submatrix.n; i++) {
             for(int j = submatrix.j; j < submatrix.m; j++) {
@@ -285,7 +319,7 @@ public class Poupador extends ProgramaPoupador {
         }
 
         weight -= discovered[s.getPosition().x][s.getPosition().y];
-
+        System.out.println("CalcExploration: " + weight);
         return weight;
     }
 
@@ -297,7 +331,7 @@ public class Poupador extends ProgramaPoupador {
 
             for (int i = 0; i < matrix.length; i++)  {
                 for (int j = 0; j < matrix[0].length; j++)     {
-                    String str = padRight(matrix[j][i].toString(), 15);
+                    String str = padRight(matrix[i][j].toString(), 15);
                     System.out.print(str);
                     writer.append(str);
                 }
@@ -319,6 +353,35 @@ public class Poupador extends ProgramaPoupador {
 
     public static SubMatrix cutMatrix(MapEnum[][] matrix, Point currentPosition, ActionEnum action){
         int mMatrix = matrix.length;
+        int nMatrix = matrix[0].length;
+        int m = 0;
+        int n = 0;
+        int i = 0;
+        int j =  0;
+
+//		currentPosition
+        if(action.getValue() == EAction.UP.getValue() || EAction.DOWN.getValue() == action.getValue()) {
+            n = nMatrix;
+
+            if(action.getValue() == EAction.UP.getValue()) {
+                m = currentPosition.y;
+            }else {
+                m = mMatrix - currentPosition.y;
+                j = currentPosition.y + 1;
+            }
+        }else {
+            m = mMatrix;
+
+            if(action.getValue() == EAction.LEFT.getValue()) {
+                n = currentPosition.x;
+            }else {
+                n = nMatrix - currentPosition.x;
+                i = currentPosition.x + 1;
+            }
+        }
+
+        return new SubMatrix(m, n, i, j);
+        /*int mMatrix = matrix.length;
         int nMatrix = matrix[0].length;
         int m = 0;
         int n = 0;
@@ -351,11 +414,11 @@ public class Poupador extends ProgramaPoupador {
                 break;
         }
 
-        return new SubMatrix(m, n, i, j);
+        return new SubMatrix(m, n, i, j);*/
     }
 
     public MapEnum[][] cutVision(StateToGo s){
-        SubMatrix c = cutMatrix(vision, s.getPosition(), s.getAction());
+        /*SubMatrix c = cutMatrix(vision, s.getPosition(), s.getAction());
 
         MapEnum[][] aux = new MapEnum[c.n][c.m];
         for (int i = 0; i < c.n; i++) {
@@ -363,14 +426,15 @@ public class Poupador extends ProgramaPoupador {
                 aux[i][j] = vision[i+c.i][j+c.j];
             }
         }
-        return aux;
-        /*int m = (action.getValue() == ActionEnum.UP.getValue() || ActionEnum.DOWN.getValue() == action.getValue()) ? 2 : 5;
+        return aux;*/
+        ActionEnum action = s.getAction();
+        int m = (action.getValue() == ActionEnum.UP.getValue() || ActionEnum.DOWN.getValue() == action.getValue()) ? 2 : 5;
         int n = (m == 5) ? 2 : 5;
 
         int i = action.getValue() == ActionEnum.DOWN.getValue() ? 3 : 0;
         int j = action.getValue() == ActionEnum.RIGHT.getValue() ? 3 : 0;
 
-        return cutMatrix(vision, m, n, i ,j);*/
+        return cutMatrix(vision, m, n, i ,j);
     }
 
     private static MapEnum[][] cutMatrix(MapEnum[][] matrix, int m, int n, int i, int j){

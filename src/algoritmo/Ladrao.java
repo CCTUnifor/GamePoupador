@@ -22,14 +22,14 @@ public class Ladrao extends ProgramaLadrao {
         adicionarPontoVisitado(posicaoAtual);
 
         if(direcaoVisaoLadrao != 0) {
-            System.out.println("Modo: Perseguição Sensor: Visão Direção: " + direcaoVisaoLadrao);
+            //System.out.println("Modo: Perseguição Sensor: Visão Direção: " + direcaoVisaoLadrao);
             return direcaoVisaoLadrao;
         } else if(direcaoOlfatoLadrao != 0) {
-            System.out.println("Modo: Perseguição Sensor: Olfato Direção: " + direcaoOlfatoLadrao);
+            //System.out.println("Modo: Perseguição Sensor: Olfato Direção: " + direcaoOlfatoLadrao);
             return direcaoOlfatoLadrao;
         } else {
             direcao = explorar();
-            System.out.println("Modo: Exploração Direção: " + direcao);
+            //System.out.println("Modo: Exploração Direção: " + direcao);
             return direcao;
         }
 
