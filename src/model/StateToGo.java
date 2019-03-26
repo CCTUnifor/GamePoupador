@@ -30,4 +30,9 @@ public class StateToGo {
             }
         };
     }
+
+    @Override
+    public String toString() {
+        return position.toString() + " - " + action.toString() + " - " + weight;
+    }
 }

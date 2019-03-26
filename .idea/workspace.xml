@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4f20f52-6019-41a0-bfb1-76c7787b23ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/algoritmo/PoupadorX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/ActionEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/GlobalVariables.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/MapEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/MapValuesEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/StateToGo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/EAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/EAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/EGameObjectWeight.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/EGameObjectWeight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/EMapCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/EMapCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/Poupador$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/Poupador$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/Poupador.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/Poupador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/State$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/State$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/SubMatrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/SubMatrix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/algoritmo/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/algoritmo/Util.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matriz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matriz.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algoritmo/Poupador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algoritmo/Poupador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/StateToGo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/StateToGo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,10 +21,12 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/algoritmo/PoupadorX.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="462">
-                    <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+                  <state relative-caret-position="309">
+                    <caret line="348" column="25" selection-start-line="348" selection-start-column="25" selection-end-line="348" selection-end-column="25" />
                     <folding>
                       <element signature="imports" expanded="true" />
+                      <element signature="e#8748#8749#0" expanded="true" />
+                      <element signature="e#8792#8793#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -54,12 +42,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/algoritmo/Poupador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="361" column="43" lean-forward="true" selection-start-line="361" selection-start-column="43" selection-end-line="361" selection-end-column="43" />
+            <state relative-caret-position="246">
+              <caret line="75" column="56" selection-start-line="75" selection-start-column="56" selection-end-line="75" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#10095#10096#0" expanded="true" />
+                <element signature="e#4827#4838#0" expanded="true" />
+                <element signature="e#8550#8551#0" expanded="true" />
+                <element signature="e#8605#8606#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib/poupador.jar!/algoritmo/Ambiente.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="86" selection-start-line="86" selection-end-line="86" />
             </state>
           </provider>
         </entry>
@@ -94,10 +93,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/StateToGo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="211">
               <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#960#961#0" expanded="true" />
+                <element signature="e#1007#1008#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -132,7 +133,6 @@
       <find>identifyWeightByCode</find>
       <find>getDis</find>
       <find>visionSmell</find>
-      <find>smell</find>
       <find>cell</find>
       <find>haveMoney</find>
       <find>walkMemory</find>
@@ -151,9 +151,10 @@
       <find>getstat</find>
       <find>State</find>
       <find>count_i</find>
-      <find>print</find>
       <find>actionMatrix</find>
       <find>cutMatrix</find>
+      <find>smell</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -187,17 +188,17 @@
         <option value="$PROJECT_DIR$/src/algoritmo/Ladrao.java" />
         <option value="$PROJECT_DIR$/src/model/MapEnum.java" />
         <option value="$PROJECT_DIR$/src/model/ActionEnum.java" />
-        <option value="$PROJECT_DIR$/src/model/StateToGo.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/PoupadorX.java" />
         <option value="$PROJECT_DIR$/src/model/MapValuesEnum.java" />
         <option value="$PROJECT_DIR$/src/model/GlobalVariables.java" />
+        <option value="$PROJECT_DIR$/src/model/StateToGo.java" />
         <option value="$PROJECT_DIR$/src/algoritmo/Poupador.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="274" />
-    <option name="y" value="-15" />
+    <option name="x" value="279" />
+    <option name="y" value="-22" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -243,7 +244,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553570360388" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553574255155" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -349,9 +350,9 @@
       <window_info anchor="bottom" id="Messages" order="2" weight="0.3290461" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info active="true" anchor="bottom" id="Find" order="5" visible="true" weight="0.3290461" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.3290461" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.3279743" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.3215434" />
+      <window_info active="true" anchor="bottom" id="Debug" order="7" visible="true" weight="0.3215434" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -382,13 +383,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/algoritmo/Poupador.java</url>
-          <line>190</line>
-          <properties />
-          <option name="timeStamp" value="137" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/algoritmo/Poupador.java</url>
-          <line>357</line>
+          <line>316</line>
           <properties />
           <option name="timeStamp" value="138" />
         </line-breakpoint>
@@ -402,6 +397,21 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>x == 9 &amp;&amp; y == 6</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>x == 10 &amp;&amp; y == 6</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>x == 10</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>i == 27</expression-string>
         <language-id>JAVA</language-id>
@@ -594,13 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/poupador.jar!/algoritmo/Ambiente.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/Util.java" />
     <entry file="file://$PROJECT_DIR$/src/algoritmo/PoupadorDaniel.java" />
     <entry file="file://$PROJECT_DIR$/src/algoritmo/poupador/enums/EGameObjectWeight.java" />
@@ -666,16 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/StateToGo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/GlobalVariables.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -699,21 +692,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/PoupadorX.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+        <state relative-caret-position="309">
+          <caret line="348" column="25" selection-start-line="348" selection-start-column="25" selection-end-line="348" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#8748#8749#0" expanded="true" />
+            <element signature="e#8792#8793#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/poupador.jar!/algoritmo/Ambiente.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/StateToGo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#1007#1008#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algoritmo/Poupador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="361" column="43" lean-forward="true" selection-start-line="361" selection-start-column="43" selection-end-line="361" selection-end-column="43" />
+        <state relative-caret-position="246">
+          <caret line="75" column="56" selection-start-line="75" selection-start-column="56" selection-end-line="75" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#10095#10096#0" expanded="true" />
+            <element signature="e#4827#4838#0" expanded="true" />
+            <element signature="e#8550#8551#0" expanded="true" />
+            <element signature="e#8605#8606#0" expanded="true" />
           </folding>
         </state>
       </provider>
